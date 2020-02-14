@@ -1,2 +1,2 @@
-# privacy-rights-platform
-Code for the App Privacy Platform
+# privacy-rights-platform-mobile
+Mobile code for the Privacy Rights Platform
