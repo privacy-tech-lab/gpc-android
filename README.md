@@ -1,2 +1,2 @@
-# privacy-rights-platform-mobile
-Mobile code for the Privacy Rights Platform
+# optmeowt-mobile
+Mobile code for OptMeowt
