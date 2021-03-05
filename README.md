@@ -1,4 +1,4 @@
-# gpc-ios
+# gpc-android
 
 With Apple's recent introduction of the [App Tracking Transparency Framework](https://developer.apple.com/documentation/apptrackingtransparency), de facto, we already have GPC on iOS. It just goes by a different name. Especially, [Apple's definition of Tracking](https://developer.apple.com/app-store/app-privacy-details/#user-tracking) neatly matches GPC:
 
