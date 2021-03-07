@@ -17,26 +17,109 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIe-j6-ycy">
-                                <rect key="frame" x="167" y="433" width="80" height="30"/>
-                                <state key="normal" title="Hello World"/>
+                                <rect key="frame" x="20" y="400" width="374" height="96"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <state key="normal" title="🔑">
+                                    <color key="titleColor" red="0.3778875291961985" green="0.24882927504278529" blue="0.27097141392968876" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showMessageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tZM-kS-7cp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qq-gq-dpv">
+                                <rect key="frame" x="20" y="504" width="374" height="96"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <state key="normal" title="🧩">
+                                    <color key="titleColor" red="0.37788752920000002" green="0.24882927499999999" blue="0.27097141390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showMessage3WithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ciD-y2-p2q"/>
+                                    <action selector="showMessageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tsB-yw-uds"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgg-NO-U7m">
+                                <rect key="frame" x="20" y="296" width="374" height="96"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <state key="normal" title="🍊">
+                                    <color key="titleColor" red="0.37788752920000002" green="0.24882927499999999" blue="0.27097141390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showMessage1WithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2d0-mI-qQ8"/>
+                                    <action selector="showMessageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tzG-Cp-Qay"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNW-ax-2Ze">
+                                <rect key="frame" x="20" y="192" width="374" height="96"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <state key="normal" title="🍄">
+                                    <color key="titleColor" red="0.37788752920000002" green="0.24882927499999999" blue="0.27097141390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showMessage2WithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eAt-EW-hIJ"/>
+                                    <action selector="showMessageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ged-a9-byv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRp-0a-nDm">
+                                <rect key="frame" x="20" y="608" width="374" height="96"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <state key="normal" title="🚙">
+                                    <color key="titleColor" red="0.37788752920000002" green="0.24882927499999999" blue="0.27097141390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showMessage4WithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7GT-yb-Tup"/>
+                                    <action selector="showMessageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n00-SQ-Ie8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="MIe-j6-ycy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="aIo-lX-Qgf"/>
-                            <constraint firstItem="MIe-j6-ycy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tvS-Hg-SzC"/>
+                            <constraint firstItem="gNW-ax-2Ze" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="2CF-ms-jl9"/>
+                            <constraint firstItem="3qq-gq-dpv" firstAttribute="trailing" secondItem="SRp-0a-nDm" secondAttribute="trailing" id="3YV-S3-tfJ"/>
+                            <constraint firstItem="gNW-ax-2Ze" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="148" id="GUc-tE-ZLt"/>
+                            <constraint firstItem="gNW-ax-2Ze" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="LpZ-Qn-Rwo"/>
+                            <constraint firstItem="3qq-gq-dpv" firstAttribute="top" secondItem="MIe-j6-ycy" secondAttribute="bottom" constant="8" id="MVr-gg-1hd"/>
+                            <constraint firstItem="MIe-j6-ycy" firstAttribute="leading" secondItem="3qq-gq-dpv" secondAttribute="leading" id="Vqr-KL-OGR"/>
+                            <constraint firstItem="bgg-NO-U7m" firstAttribute="leading" secondItem="MIe-j6-ycy" secondAttribute="leading" id="WmN-n2-HDO"/>
+                            <constraint firstItem="gNW-ax-2Ze" firstAttribute="leading" secondItem="bgg-NO-U7m" secondAttribute="leading" id="fOR-OF-eVN"/>
+                            <constraint firstItem="MIe-j6-ycy" firstAttribute="trailing" secondItem="3qq-gq-dpv" secondAttribute="trailing" id="fcs-G1-Zai"/>
+                            <constraint firstItem="SRp-0a-nDm" firstAttribute="top" secondItem="3qq-gq-dpv" secondAttribute="bottom" constant="8" id="jzu-yn-gyf"/>
+                            <constraint firstItem="bgg-NO-U7m" firstAttribute="trailing" secondItem="MIe-j6-ycy" secondAttribute="trailing" id="jzv-RM-1oT"/>
+                            <constraint firstItem="3qq-gq-dpv" firstAttribute="leading" secondItem="SRp-0a-nDm" secondAttribute="leading" id="kOo-x6-OU7"/>
+                            <constraint firstItem="gNW-ax-2Ze" firstAttribute="trailing" secondItem="bgg-NO-U7m" secondAttribute="trailing" id="n0k-We-0vO"/>
+                            <constraint firstItem="MIe-j6-ycy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="utt-We-AZ6"/>
+                            <constraint firstItem="bgg-NO-U7m" firstAttribute="top" secondItem="gNW-ax-2Ze" secondAttribute="bottom" constant="8" id="xOe-hE-LKP"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-483" y="48"/>
+            <point key="canvasLocation" x="-1130.4347826086957" y="315.40178571428572"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
