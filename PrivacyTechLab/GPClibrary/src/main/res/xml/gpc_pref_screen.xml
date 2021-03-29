@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <SwitchPreferenceCompat
+        android:id="@+id/GPCsetting"
+        android:title="Disable GPC Signal"
+        app:key="GPCsignal"
+        app:title="Enable GPC Signal" />
+
+</PreferenceScreen>
