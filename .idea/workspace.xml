@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c6b0eb27-2d57-4148-b47e-9d4c669919ee" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/GPClibrary/src/main/res/xml/gpc_pref_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/GPClibrary/src/main/res/xml/gpc_pref_screen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/app/src/main/java/org/privacytechlab/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/app/src/main/java/org/privacytechlab/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/mylibrary/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/mylibrary/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/mylibrary/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/mylibrary/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/mylibrary/src/androidTest/java/com/example/mylibrary/ExampleInstrumentedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/mylibrary/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/mylibrary/src/test/java/com/example/mylibrary/ExampleUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/consumer-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/androidTest/java/com/example/testlibrary/ExampleInstrumentedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/java/GPCsettingsMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/java/com/example/testlibrary/FirstFragment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/java/com/example/testlibrary/GPCSettingsMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/java/com/example/testlibrary/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/java/com/example/testlibrary/SecondFragment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/java/com/example/testlibrary/SettingsActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/res/layout/content_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/res/layout/fragment_first.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/res/layout/fragment_second.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/res/navigation/nav_graph.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/res/values/GPCpreferences.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/res/values/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gpc-android/PrivacyTechLab/testLibrary/src/test/java/com/example/testlibrary/ExampleUnitTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1q5eRnfYta63OOLGlFbRo0IKG4x" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c6b0eb27-2d57-4148-b47e-9d4c669919ee" name="Default Changelist" comment="" />
+      <created>1616373872157</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616373872157</updated>
+    </task>
+    <servers />
+  </component>
+</project>
