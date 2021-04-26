@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SendGPC.send_signal();
-
+        String url= "https://gpc-mobile-default-rtdb.firebaseio.com/.json";
+        SendGPC.send_signal(url);
     }
 
     /** Called when the user taps the Send button */

@@ -1,5 +1,7 @@
 package com.example.gpc_mobile_library;
 
+import android.util.Log;
+
 import java.io.IOException;
 
 import okhttp3.Call;
@@ -9,22 +11,23 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class SendGPC {
-    public static void send_signal()  {
+    public static void send_signal(String url)  {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
-                .url("https://gpc-mobile-default-rtdb.firebaseio.com/.json")
+                .url(url)
                 .addHeader("GPC-Signal", "1")
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
+                Log.e("error", "request failed");
             }
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
+                Log.e("success", "request succeeded");
                 if (!response.isSuccessful()) {
                     throw new IOException("Unexpected code " + response);
                 }
