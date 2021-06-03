@@ -1,3 +1,0 @@
-include ':GPC-mobile-library'
-include ':app'
-rootProject.name = "Privacy Tech Lab"
