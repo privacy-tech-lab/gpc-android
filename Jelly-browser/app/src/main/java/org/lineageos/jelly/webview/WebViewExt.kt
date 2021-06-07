@@ -24,8 +24,6 @@ import android.util.Log
 import android.view.View
 import android.webkit.WebView
 import android.widget.ProgressBar
-import androidx.preference.PreferenceManager
-import org.lineageos.jelly.R
 import org.lineageos.jelly.ui.UrlBarController
 import org.lineageos.jelly.utils.PrefsUtils
 import org.lineageos.jelly.utils.UrlUtils
