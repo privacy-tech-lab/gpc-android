@@ -51,7 +51,8 @@ class WebViewExt @JvmOverloads constructor(
     fun followUrl(url: String) {
         var fixedUrl = UrlUtils.smartUrlFilter(url)
         if (fixedUrl != null) {
-            println("headers"+mRequestHeaders)
+            setup()
+            println("headers$mRequestHeaders")
             super.loadUrl(fixedUrl, mRequestHeaders)
             return
         }
@@ -119,8 +120,14 @@ class WebViewExt @JvmOverloads constructor(
         if (PrefsUtils.getDoNotTrack(mActivity)) {
             mRequestHeaders[HEADER_DNT] = "1"
         }
+        else if (mRequestHeaders.containsKey(HEADER_DNT)){
+            mRequestHeaders.remove(HEADER_DNT)
+        }
         if (PrefsUtils.getGPC(mActivity)) {
             mRequestHeaders[HEADER_GPC] = "1"
+        }
+        else if (mRequestHeaders.containsKey(HEADER_GPC)){
+            mRequestHeaders.remove(HEADER_GPC)
         }
     }
 
