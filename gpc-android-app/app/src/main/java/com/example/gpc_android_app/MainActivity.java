@@ -1,7 +1,5 @@
 package com.example.gpc_android_app;
 
-import static java.security.AccessController.getContext;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -14,22 +12,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btn1;
+    Button adid_settings_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn1 = findViewById(R.id.button);
-        btn1.setOnClickListener(this);
+        adid_settings_btn = findViewById(R.id.button);
+        adid_settings_btn.setOnClickListener(this);
 
     }
 
@@ -70,11 +66,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
-        if (this.hasAdSettings(this)) {
-            startActivity(this.adSettings());
+        if (hasAdSettings(this)) {
+            startActivity(adSettings());
         } else {
-                /*View vx = getView();
-                if (vx != null)*/
             Toast.makeText(this, "Error", Toast.LENGTH_LONG).show();
         }
 
