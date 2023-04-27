@@ -50,4 +50,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.26" />
 
+    <TextView
+        android:id="@+id/browser_instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:text="Please download one of the given browsers below with built-in GPC (Global Privacy Control) support to stop ad-tracking."
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/brave_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
