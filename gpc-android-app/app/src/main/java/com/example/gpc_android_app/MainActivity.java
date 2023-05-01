@@ -132,8 +132,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                     "Global Privacy Control (GPC) is an online privacy standard in development at the W3C\n\n" +
                     "- Enable GPC to opt out of data selling/sharing\n" +
                     " - Whether a website must respect your opt-out depends on the local law (E.g. CCPA for California)\n" +
-                    "- Websites respecting GPC can still collect your data and  show you ads, but they are no longer" +
-                    "allowed to desclose your data to advertisers";
+                    "- Websites respecting GPC can still collect your data and show you ads, but they are no longer " +
+                    "allowed to disclose your data to advertisers";
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(title);
             builder.setMessage(message);
