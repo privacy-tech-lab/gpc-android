@@ -21,3 +21,8 @@ Currently, our focus is on analyzing network traffic, and we are focused on anal
 5. Use apk-mitm (https://github.com/shroudedcode/apk-mitm) on the apk, else TSL handshake will not work.
 
 You should then see the indicator that GPC enabled; “Sec-GPC: 1”
+
+### gpc-android-app
+The gpc-android-app contains the code for an app which has the following functions
+1. Directs users to DuckDuckGo or Brave, two browsers where GPC is enabled
+2. Directs users to the AdID setting, where they can disable the AdID setting.
