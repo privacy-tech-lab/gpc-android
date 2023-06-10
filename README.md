@@ -2,13 +2,13 @@
 
 This repo contains code and documentation for implementing GPC on Android, which is [especially relevant](https://www.bloomberg.com/news/articles/2021-02-04/google-explores-alternative-to-apple-s-new-anti-tracking-feature?sref=ExbtjcSG),
 
-Contact us with any questions or comments at sebastian@privacytechlab.org.
-
 Google is exploring an alternative to Apple Inc.’s new anti-tracking feature, the latest sign that the internet industry is slowly embracing user privacy, according to people with knowledge of the matter. We hope to examine:
 - How are the GPC and Google’s AdID opt-out supposed to affect apps’ data practices?
 - How do the GPC signal and Google’s AdID opt-out affect apps’ data flow on the latest Android?
 - What happens to the AdID? 
 - What countermeasures do apps take? Using other unique AdIDs (e.g. Facebook, Amazon)?
+
+Contact us with any questions or comments at sebastian@privacytechlab.org.
 
 ## Research Focus
 Currently, our focus is on analyzing network traffic, and we are focused on analyzing how enabling GPC and disabling the AdID affects the network traffic. We are currently working on an automated way to do so, but our current method is as follows:
