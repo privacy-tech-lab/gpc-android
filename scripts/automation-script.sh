@@ -11,20 +11,24 @@ killwait ()
 TARGET_PACKAGE_NAME=$1
 TYPE=$2
 
+INSTALL_PATH="/Users/nishantaggarwal/Documents/apks"
+MITM_PATH="/Users/nishantaggarwal/Documents/mitm-captures/$TARGET_PACKAGE_NAME$TYPE.mitm"
+FRIDA_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/frida-script.js"
+
 # Download and Install the App + Grant all permissions
-cd /Users/nishantaggarwal/Documents/apks
+cd $INSTALL_PATH
 /Users/nishantaggarwal/.cargo/bin/apkeep -a $TARGET_PACKAGE_NAME .
 adb install -g "$TARGET_PACKAGE_NAME.apk"
 sleep 2
 
 # Start MITM-Wireguard
-mitmdump --mode wireguard --showhost -w /Users/nishantaggarwal/Documents/mitm-captures/$TARGET_PACKAGE_NAME$TYPE.mitm &
+mitmdump --mode wireguard --showhost -w $MITM_PATH &
 MITM_PID=$!
 echo "MITM-Proxy started"
 sleep 2
 
 # Apply the Frida Script 
-frida -U -l /Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/frida-script.js -f $TARGET_PACKAGE_NAME &
+frida -U -l $FRIDA_PATH -f $TARGET_PACKAGE_NAME &
 FRIDA_PID=$!
 
 # Sleep for testing purposes
