@@ -1,5 +1,5 @@
 const gplay = require('google-play-scraper');
-const createCsvWriter = require('csv-writer').createObjectCsvWriter;  // you need to install csv-writer package
+const createCsvWriter = require('csv-writer').createObjectCsvWriter;  // install csv-writer package
 
 const csvWriter = createCsvWriter({
     path: 'dating-apps.csv', // change path each time
@@ -12,7 +12,7 @@ const csvWriter = createCsvWriter({
 });
 
 gplay.list({
-    category: gplay.category.DATING,
+    category: gplay.category.DATING, // change category each time
     collection: gplay.collection.TOP_FREE,
     num: 50
 })
@@ -26,7 +26,7 @@ gplay.list({
         };
     });
 
-    csvWriter.writeRecords(data)       // returns a promise
+    csvWriter.writeRecords(data)       
     .then(() => {
         console.log('...Done');
     });
