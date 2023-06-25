@@ -11,21 +11,23 @@ killwait ()
 TARGET_PACKAGE_NAME=$1
 TYPE=$2
 
-INSTALL_PATH="/Users/nishantaggarwal/Documents/apks"
 MITM_PATH="/Users/nishantaggarwal/Documents/mitm-captures/$TARGET_PACKAGE_NAME$TYPE.mitm"
 FRIDA_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/frida-script.js"
-
-# Download and Install the App + Grant all permissions
-cd $INSTALL_PATH
-/Users/nishantaggarwal/.cargo/bin/apkeep -a $TARGET_PACKAGE_NAME .
-adb install -g "$TARGET_PACKAGE_NAME.apk"
-sleep 2
+MITM_SCRIPT_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/mitm-gpc-script.py"
 
 # Start MITM-Wireguard
-mitmdump --mode wireguard --showhost -w $MITM_PATH &
-MITM_PID=$!
-echo "MITM-Proxy started"
-sleep 2
+if [ "$TYPE" == "_ADID_GPC" ] || [ "$TYPE" == "_NO_ADID_GPC" ]; then
+  mitmdump --mode socks5 -p 8889 -s $MITM_SCRIPT_PATH --showhost -w $MITM_PATH &
+  MITM_PID=$!
+  echo "MITM-Proxy started"
+  sleep 2
+else 
+  mitmdump --mode socks5 -p 8889 --showhost -w $MITM_PATH &
+  MITM_PID=$!
+  echo "MITM-Proxy started"
+  sleep 2
+fi
+
 
 # Apply the Frida Script 
 frida -U -l $FRIDA_PATH -f $TARGET_PACKAGE_NAME &
@@ -41,7 +43,3 @@ sleep 2
 
 # End MITM-Wireguard
 killwait $MITM_PID
-
-# Uninstall the App [the [-k] option allows you to keep the data and cache of the app intact]
-adb shell pm uninstall -k $TARGET_PACKAGE_NAME
-exec <&-
