@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/automation-script.sh"
+SCRIPT_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/basic-automation-script.sh"
 APP_LIST="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/app-list.txt"
 INSTALL_PATH="/Users/nishantaggarwal/Documents/apks"
 
@@ -16,6 +16,10 @@ TARGET_PACKAGE_NAME=$1
 echo "Processing line: $TARGET_PACKAGE_NAME"
 
 # TODO: GET THE ADID AND SAVE IT IN A FILE WITH PACKAGE NAME
+content=$(adb shell 'su -c "grep adid_key /data/data/com.google.android.gms/shared_prefs/adid_settings.xml"')
+extracted_string=$(echo "$content" | sed -n 's/.*<string name="adid_key">\([^<]*\)<\/string>.*/\1/p')
+
+echo "$TARGET_PACKAGE_NAME: $extracted_string" >> APP_ADID.txt
 
 # INSTALL THE APP
 cd $INSTALL_PATH
