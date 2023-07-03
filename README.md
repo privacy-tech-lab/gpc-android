@@ -7,14 +7,14 @@ The repo contains the following
 - a folder containing `gpc-android-app`, code for an Android app written in Java
 - a folder containing `scripts`, which can be used to intercept network traffic
 
-### gpc-android-app
+## gpc-android-app
 The gpc-android-app folder contains the code for an app which has the following functions
 1. Directs users to DuckDuckGo or Brave, two browsers where GPC is enabled
 2. Directs users to the AdID setting, where they can disable the AdID setting.
 
 You can run it using `git clone https://github.com/privacy-tech-lab/gpc-android/gpc-android-app.git` into your Terminal, and subsequently use an emulator, such as Android Studio to run the application
 
-### scripts
+## scripts
 The code in scripts can be used in conjunction with mitmproxy with WireGuard method to intercept network traffic
 We are currently working on an automated way to analyze network traffic, but our current method is as follows:
 1. Download the WireGuard app on the Phone through play store.
@@ -24,11 +24,11 @@ We are currently working on an automated way to analyze network traffic, but our
 5. Use apk-mitm (https://github.com/shroudedcode/apk-mitm) on the apk, else TSL handshake will not work.
 You should then see the indicator that GPC enabled; “Sec-GPC: 1”
 
-### apps_csv
+## apps_csv
 
 The `apps_csv` folder contains a collection of CSV files, each representing a category of apps on the Google Play Store. Each file contains a list of the top 40 free apps for that category. The following instructions will guide you on how to use the content of this folder:
 
-# Structure of the Folder
+### Structure of the Folder
 Multiple CSV files named as `apps_<CATEGORY>.csv` where <CATEGORY> is the category name from the Google Play Store.
 A JavaScript file trial-play-scraper.js, which is used to scrape app data from the Google Play Store.
 A bash shell script play-store-downloader.sh, which reads a CSV file and downloads the corresponding apps.
@@ -41,7 +41,7 @@ DEVELOPER: the developer of the app.
 SCORE: the score of the app on the Google Play Store.
 Each CSV file contains the top 40 free apps for that category.
 
-# How to Use
+### How to Use
 Step 1: Clone the Repository
 Start by cloning the repository to your local machine, then navigate to the app_csv folder:
 ``cd app_csv``
@@ -62,5 +62,5 @@ This will download all the apps listed in the apps-ART_AND_DESIGN.csv file.
 
 To download apps from a different category, replace apps-ART_AND_DESIGN.csv with the desired CSV file name in the script.
 
-# Note
+### Note
 Please be sure to follow all relevant Terms of Service when interacting with the Google Play Store. Misuse of scraping and downloading tools can lead to your account being suspended or banned. Always respect the rights of the app developers and the platform.
