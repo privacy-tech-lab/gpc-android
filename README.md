@@ -13,7 +13,7 @@
 <br>
 
 <p align="center">
-  <a href="https://privacytechlab.org/"><img src="./gpc-logo-small-black.svg" width="200px" height="200px" alt="GPC logo"></a>
+  <a href="https://privacytechlab.org/"><img src="./wifi.svg" width="200px" height="200px" alt="GPC Android Image"></a>
 </p>
 
 # GPC Android
