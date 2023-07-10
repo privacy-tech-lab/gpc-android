@@ -1,6 +1,6 @@
 #!/bin/bash
-EMAIL='tanwesley407@gmail.com'  # replace with your email
-PASSWORD='privacytechlab'  # replace with your password
+EMAIL='<email>'  # replace with your email
+PASSWORD='<pw>'  # replace with your password
 
 # Read the CSV file
 while IFS=$',' read -r APP_ID TITLE DEVELOPER SCORE
