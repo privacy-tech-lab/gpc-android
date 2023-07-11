@@ -47,29 +47,39 @@ You can run the app by cloning this repo and running it in [Android Studio](http
 
 ## 3. Scripts
 
-The scripts can be used in conjunction with [mitmproxy](https://mitmproxy.org/), with the WireGuard method, to intercept network traffic.
+The scripts can be used in conjunction with [mitmproxy](https://mitmproxy.org/) SOCKS5 mode to intercept network traffic.
 
 Run the scripts as follows:
 
-1. Download the WireGuard app to your phone through the Google Play Store.
-2. Run in the terminal of your computer
+1. Install and configure mitmproxy on your computer.
+2. Install the mitmproxy certificate in your computer's Root Certificate directory and to the User Certificate directory of your android phone.
+3. Install the [SOCKSdroid](https://play.google.com/store/apps/details?id=net.typeblog.socks&hl=en_US&gl=US) app to reroute traffic from your phone to the proxy server.
+4. Start a SOCKS5 proxy on your computer. To do so, execute the following command in your computer:
 
    ```bash
-   mitmweb --mode
+   mitmdump --mode SOCKS5 -p $PORT_NUMBER
    ```
 
-   Note this step assumes that mitmproxy has been installed and configured correctly on the phone. Now a new tab should open in your browser. This tab will contain a QR code. Scan the QR code using the WireGuard app you installed on your phone and save it.
-
-3. Now you can turn on a VPN tunnel in the WireGuard app, and all the traffic should be intercepted.
-4. To use the GPC header the terminal command is
+5. Enter the IP-address and port number of the SOCKS proxy in the SOCKSdroid app and enable the proxy on your phone. You should now be able to intercept network traffic. <br />Note: To avoid problems make sure that your phone and computer are connected to the same wifi network.
+6. To use the GPC header the terminal command is
 
    ```bash
-   mitmweb --mode wireguard -s mitm-script.py
+   mitmdump --mode SOCKS5 -p $PORT_NUMBER -s mitm-script.py
    ```
 
-   where mitm-script.py is the name of the script file.
+   `mitm-script.py` is available in the scripts folder.
 
-5. Use [apk-mitm](https://github.com/shroudedcode/apk-mitm) on the APK. Otherwise, the TSL handshake will not work. You should then see the indicator that GPC is enabled: `"Sec-GPC: 1"`.
+Notice that the above instructions may not allow you to view all network data because of various reasons. To view more of the data you will have to do make a few more changes:
+
+- Most apps don't accept user installed certificates. The suggested way to get around this is to root the device and install the [MagiskTrustUserCerts](https://github.com/NVISOsecurity/MagiskTrustUserCerts) Module to install the certificate into system store. Rooting a device depends on the version of Android you may be using and the manufacturer of your phone; as such we can't provide any instructions on this. Nevertheless, it is encouraged that you use [Magisk](https://magiskmanager.com/#How_to_Install_Magisk_Latest_Version_on_Android_Custom_Recovery_Option) to root the device.
+
+  - The alternative method, without rooting the phone, is to apply the [apk-mitm](https://github.com/shroudedcode/apk-mitm) to the apps you want to analyze.
+
+- Some apps may still not accept the certificate becuase of SSL Pinning. To get around this, install the [Frida](https://github.com/frida/frida) server on your device, and run the `SSL-Unpinning-script` on the desired app. Follow the [HTTP ToolKit Frida guide](https://httptoolkit.com/blog/frida-certificate-pinning/) for instructions on installing and setting up Frida.
+
+- On Rooted devices, Chrome Certificate Transparency prevents network capture of browser data. To fix this issue, install the [MagiskBypassCertificateTransparencyError](https://github.com/JelmerDeHen/MagiskBypassCertificateTransparencyError) Module.
+
+Note that you still may not be able to intercept network traffic for some apps. This is because the SSLUnpinning script we used is not foolproof. There are apps like Instagram that use custom pinning libraries that are very tough to workaround. Nevertheless, this should give you access to network traffic of most of the apps on the Google Play Store.
 
 ## 4. Apps CSV
 
