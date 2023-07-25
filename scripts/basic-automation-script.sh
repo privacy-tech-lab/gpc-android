@@ -12,17 +12,19 @@ TARGET_PACKAGE_NAME=$1
 TYPE=$2
 
 MITM_PATH="/Users/nishantaggarwal/Documents/mitm-captures/$TARGET_PACKAGE_NAME$TYPE.mitm"
+HAR_PATH="/Users/nishantaggarwal/Documents/mitm-captures/$TARGET_PACKAGE_NAME$TYPE.har"
 FRIDA_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/frida-script.js"
+HAR_SCRIPT_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/dump_dump.py"
 MITM_SCRIPT_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/mitm-gpc-script.py"
 
 # Start MITM-Wireguard
 if [ "$TYPE" == "_ADID_GPC" ] || [ "$TYPE" == "_NO_ADID_GPC" ]; then
-  mitmdump --mode socks5 -p 8889 -s $MITM_SCRIPT_PATH --showhost -w $MITM_PATH &
+  mitmdump --mode socks5 -p 8889 -s $MITM_SCRIPT_PATH --showhost -w $MITM_PATH -s $HAR_SCRIPT_PATH --set hardump=$HAR_PATH &
   MITM_PID=$!
   echo "MITM-Proxy started"
   sleep 2
 else 
-  mitmdump --mode socks5 -p 8889 --showhost -w $MITM_PATH &
+  mitmdump --mode socks5 -p 8889 --showhost -w $MITM_PATH -s $HAR_SCRIPT_PATH --set hardump=$HAR_PATH &
   MITM_PID=$!
   echo "MITM-Proxy started"
   sleep 2

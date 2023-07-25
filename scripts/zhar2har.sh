@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# run: source [path to script]/zhar2har.sh
-# assumption: recordings in zhar/
-
 mkdir -p zhar_done/
 mkdir -p har/
 
