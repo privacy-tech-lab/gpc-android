@@ -14,7 +14,7 @@ TYPE=$2
 MITM_PATH="/Users/nishantaggarwal/Documents/mitm-captures/$TARGET_PACKAGE_NAME$TYPE.mitm"
 HAR_PATH="/Users/nishantaggarwal/Documents/mitm-captures/$TARGET_PACKAGE_NAME$TYPE.har"
 FRIDA_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/frida-script.js"
-HAR_SCRIPT_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/dump_dump.py"
+HAR_SCRIPT_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/har_dump.py"
 MITM_SCRIPT_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/mitm-gpc-script.py"
 
 # Start MITM-Wireguard
@@ -36,7 +36,7 @@ frida -U -l $FRIDA_PATH -f $TARGET_PACKAGE_NAME &
 FRIDA_PID=$!
 
 # Sleep for testing purposes
-sleep 10
+sleep 30
 
 # End the frida script
 killwait $FRIDA_PID

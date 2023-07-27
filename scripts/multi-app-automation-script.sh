@@ -1,4 +1,4 @@
-APP_LIST="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/app-list.txt"
+APP_LIST="/Users/nishantaggarwal/Documents/Apps/GAME_ACTION/apps-GAME_ACTION.txt"
 SCRIPT_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/single-app-automation-script.sh"
 
 while read TARGET_PACKAGE_NAME <&3
