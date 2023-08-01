@@ -83,6 +83,8 @@ Note that you still may not be able to intercept network traffic for some apps. 
 
 ## 4. Apps CSV
 
+For our research, the Google Play applications will be downloaded through the google-play method through apkeep (https://github.com/EFForg/apkeep), a way to automate the downloading of Google Play applications. If this fails, we will consider alternatives such as Raccoon (https://raccoon.onyxbits.de/downloads/) or downloading from the Play Store manually.
+
 The apps_csv directory contains a collection of CSV files, each representing a category of apps on the Google Play Store. Each file contains a list of the top 40 free apps for a category.
 
 ### 4.1 Directory Contents
