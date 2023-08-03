@@ -22,13 +22,18 @@ This repo contains code and analysis scripts for GPC on Android.
 
 GPC Android is developed and maintained by Nishant Aggarwal (@n-aggarwal), Wesley Tan (@wesley-tan), Konrad Kollnig (@kasnder), and Sebastian Zimmeck (@SebastianZimmeck) of the [Law and Tech Lab of Maastricht University](https://www.maastrichtuniversity.nl/about-um/faculties/law/research/law-and-tech-lab) and the [privacy-tech-lab of Wesleyan University](https://privacytechlab.org/).
 
-[1. Repo Overview](#1-repo-overview)  
-[2. GPC Android App](#2-gpc-android-app)  
-[3. Scripts](#3-scripts)  
-[4. Apps CSV](#4-apps-csv)  
-[5. Thank You!](#5-thank-you)
+[1. Research Publications](#1-research-publications)  
+[2. Repo Overview](#2-repo-overview)  
+[3. GPC Android App](#3-gpc-android-app)  
+[4. Scripts](#4-scripts)  
+[5. Apps CSV](#5-apps-csv)  
+[6. Thank You!](#6-thank-you)
 
-## 1. Repo Overview
+## 1. Research Publications
+
+- Nishant Aggarwal, Wesley Tan, Konrad Kollnig, Sebastian Zimmeck, [The Invisible Threat: Exploring Mobile Privacy Concerns](https://github.com/privacy-tech-lab/gpc-optmeowt/blob/main/research/aggarwalEtAlInvisibleThreat2023Poster.pdf), Summer Research 2023 Poster Session, Wesleyan University, July 2023
+
+## 2. Repo Overview
 
 This repo contains the following directories:
 
@@ -36,7 +41,7 @@ This repo contains the following directories:
 - `scripts`: Code for intercepting and analyzing network traffic
 - `app-csv`: App lists sorted by Google Play Store categories
 
-## 2. GPC Android App
+## 3. GPC Android App
 
 The gpc-android-app directory contains the code for an app with the following features:
 
@@ -45,7 +50,7 @@ The gpc-android-app directory contains the code for an app with the following fe
 
 You can run the app by cloning this repo and running it in [Android Studio](https://developer.android.com/studio).
 
-## 3. Scripts
+## 4. Scripts
 
 The scripts can be used in conjunction with [mitmproxy](https://mitmproxy.org/) SOCKS5 mode to intercept network traffic.
 
@@ -81,13 +86,13 @@ Notice that the above instructions may not allow you to view all network data be
 
 Note that you still may not be able to intercept network traffic for some apps. This is because the SSLUnpinning script we used is not foolproof. There are apps like Instagram that use custom pinning libraries that are very tough to workaround. Nevertheless, this should give you access to network traffic of most of the apps on the Google Play Store.
 
-## 4. Apps CSV
+## 5. Apps CSV
 
 For our research, the Google Play applications will be downloaded through the google-play method through apkeep (https://github.com/EFForg/apkeep), a way to automate the downloading of Google Play applications. If this fails, we will consider alternatives such as Raccoon (https://raccoon.onyxbits.de/downloads/) or downloading from the Play Store manually.
 
 The apps_csv directory contains a collection of CSV files, each representing a category of apps on the Google Play Store. Each file contains a list of the top 40 free apps for a category.
 
-### 4.1 Directory Contents
+### 5.1 Directory Contents
 
 The directory contains the following files:
 
@@ -103,7 +108,7 @@ Each CSV file is named after a category on the Google Play Store, for example ap
 - SCORE: the score of the app on the Google Play Store
 - Each CSV file contains the top 40 free apps for that category
 
-### 4.2 How to Use
+### 5.2 How to Use
 
 1. Clone the repo to your local machine and navigate to the app_csv directory.
 2. To scrape app metadata from the Google Play Store for a particular category, use the trial-play-scraper.js file run
@@ -121,7 +126,7 @@ Each CSV file is named after a category on the Google Play Store, for example ap
 
    Before running the downloader script replace `email@gmail.com` and `password` in the play-store-downloader.sh file with your Google Play Store email and password, respectively. Then, give the script execution permissions and run it. Doing so will download all the apps listed in the apps-ART_AND_DESIGN.csv file. To download apps from a different category, replace apps-ART_AND_DESIGN.csv with the desired CSV file name in the script.
 
-## 5. Thank You!
+## 6. Thank You!
 
 <p align="center"><strong>We would like to thank our financial supporters!</strong></p><br>
 
