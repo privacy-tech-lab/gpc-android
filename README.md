@@ -31,7 +31,7 @@ GPC Android is developed and maintained by Nishant Aggarwal (@n-aggarwal), Wesle
 
 ## 1. Research Publications
 
-- Nishant Aggarwal, Wesley Tan, Konrad Kollnig, Sebastian Zimmeck, [The Invisible Threat: Exploring Mobile Privacy Concerns](https://github.com/privacy-tech-lab/gpc-optmeowt/blob/main/research/aggarwalEtAlInvisibleThreat2023Poster.pdf), Summer Research 2023 Poster Session, Wesleyan University, July 2023
+- Nishant Aggarwal, Wesley Tan, Konrad Kollnig, Sebastian Zimmeck, [The Invisible Threat: Exploring Mobile Privacy Concerns](https://github.com/privacy-tech-lab/gpc-android/blob/main/research/aggarwalEtAlInvisibleThreat2023Poster.pdf), Summer Research 2023 Poster Session, Wesleyan University, July 2023
 
 ## 2. Repo Overview
 
