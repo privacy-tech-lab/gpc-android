@@ -106,7 +106,7 @@ Each CSV file is named after a category on the Google Play Store, for example ap
 - TITLE: the title of the app
 - DEVELOPER: the developer of the app
 - SCORE: the score of the app on the Google Play Store
-- Each CSV file contains the top 40 free apps for that category
+- Each CSV file contains the top 45 free apps for that category
 
 ### 5.2 How to Use
 
