@@ -10,7 +10,7 @@
   <a href="https://github.com/privacy-tech-lab/gpc-android/network/members"><img alt="GitHub forks" src="https://img.shields.io/github/forks/privacy-tech-lab/gpc-android?style=social"></a>
   <a href="https://github.com/sponsors/privacy-tech-lab"><img alt="GitHub sponsors" src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86"></a>
 </p>
-  
+
 <br>
 
 <p align="center">
@@ -157,3 +157,7 @@ Each CSV file is named after a category on the Google Play Store, for example ap
 <p align="center">
   <a href="https://privacytechlab.org/"><img src="./plt_logo.png" width="200px" height="200px" alt="privacy-tech-lab logo"></a>
 <p>
+<p align="center">
+  <a href="https://www.maastrichtuniversity.nl/about-um/faculties/law/research/law-and-tech-lab"><img src="./maastricht_law_tech.svg" width="300px" height="300px" alt="Logo of Maastricht University Law and Tech Lab"></a>
+</p>
+
