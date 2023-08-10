@@ -155,9 +155,7 @@ Each CSV file is named after a category on the Google Play Store, for example ap
 ##
 
 <p align="center">
-  <a href="https://privacytechlab.org/"><img src="./plt_logo.png" width="200px" height="200px" alt="privacy-tech-lab logo"></a>
-<p>
-<p align="center">
-  <a href="https://www.maastrichtuniversity.nl/about-um/faculties/law/research/law-and-tech-lab"><img src="./maastricht_law_tech.svg" width="300px" height="300px" alt="Logo of Maastricht University Law and Tech Lab"></a>
+  <a href="https://privacytechlab.org/"><img align="center" src="./plt_logo.png" width="auto" height="200px" alt="privacy-tech-lab logo"></a>
+  <a href="https://www.maastrichtuniversity.nl/about-um/faculties/law/research/law-and-tech-lab"><img align="center" src="./maastricht_law_tech.svg" width="auto" height="50px" alt="Logo of Maastricht University Law and Tech Lab"></a>
 </p>
 
