@@ -28,7 +28,8 @@ GPC Android is developed and maintained by Nishant Aggarwal (@n-aggarwal), Wesle
 [3. GPC Android App](#3-gpc-android-app)  
 [4. Scripts](#4-scripts)  
 [5. Apps CSV](#5-apps-csv)  
-[6. Thank You!](#6-thank-you)
+[6. Downloading APKs](#6-downloading-apks)  
+[7. Thank You!](#7-thank-you)
 
 ## 1. Research Publications
 
@@ -81,7 +82,7 @@ Notice that the above instructions may not allow you to view all network data be
 
   - The alternative method, without rooting the phone, is to apply the [apk-mitm](https://github.com/shroudedcode/apk-mitm) to the apps you want to analyze.
 
-- Some apps may still not accept the certificate becuase of SSL Pinning. To get around this, install the [Frida](https://github.com/frida/frida) server on your device, and run the `SSL-Unpinning-script` on the desired app. Follow the [HTTP ToolKit Frida guide](https://httptoolkit.com/blog/frida-certificate-pinning/) for instructions on installing and setting up Frida.
+- Some apps may still not accept the certificate because of SSL Pinning. To get around this, install the [Frida](https://github.com/frida/frida) server on your device, and run the `SSL-Unpinning-script` on the desired app. Follow the [HTTP ToolKit Frida guide](https://httptoolkit.com/blog/frida-certificate-pinning/) for instructions on installing and setting up Frida.
 
 - On Rooted devices, Chrome Certificate Transparency prevents network capture of browser data. To fix this issue, install the [MagiskBypassCertificateTransparencyError](https://github.com/JelmerDeHen/MagiskBypassCertificateTransparencyError) Module.
 
@@ -89,7 +90,7 @@ Note that you still may not be able to intercept network traffic for some apps. 
 
 ## 5. Apps CSV
 
-For our research, the Google Play applications will be downloaded through the google-play method through apkeep (https://github.com/EFForg/apkeep), a way to automate the downloading of Google Play applications. If this fails, we will consider alternatives such as Raccoon (https://raccoon.onyxbits.de/downloads/) or downloading from the Play Store manually.
+For our research, the Google Play applications will be downloaded through the google-play method through [apkeep](https://github.com/EFForg/apkeep), a way to automate the downloading of Google Play applications. If this fails, we will consider alternatives such as [Raccoon](https://raccoon.onyxbits.de/) or downloading from the Play Store manually.
 
 The apps_csv directory contains a collection of CSV files, each representing a category of apps on the Google Play Store. Each file contains a list of the top 40 free apps for a category.
 
@@ -127,7 +128,17 @@ Each CSV file is named after a category on the Google Play Store, for example ap
 
    Before running the downloader script replace `email@gmail.com` and `password` in the play-store-downloader.sh file with your Google Play Store email and password, respectively. Then, give the script execution permissions and run it. Doing so will download all the apps listed in the apps-ART_AND_DESIGN.csv file. To download apps from a different category, replace apps-ART_AND_DESIGN.csv with the desired CSV file name in the script.
 
-## 6. Thank You!
+## 6. Downloading APKs
+
+APKs can be manually downloaded with [Raccoon](https://raccoon.onyxbits.de/) as follows:
+
+1. Make sure to have a US-based IP address (e.g. via VPN)
+2. Set up an account with the US Play Store
+3. Get Raccoon and a Raccoon Premium license, and use Raccoon's DummyDroid to extract the configuration from a real Android device
+4. Choose "Import Apps" in Raccoon and paste all apps' links in there (e.g. <market://details?id=com.fishbrain.app>)
+5. Sit and wait ...
+
+## 7. Thank You!
 
 <p align="center"><strong>We would like to thank our financial supporters!</strong></p><br>
 
@@ -158,4 +169,3 @@ Each CSV file is named after a category on the Google Play Store, for example ap
   <a href="https://privacytechlab.org/"><img align="center" src="./plt_logo.png" width="auto" height="200px" alt="privacy-tech-lab logo"></a>
   <a href="https://www.maastrichtuniversity.nl/about-um/faculties/law/research/law-and-tech-lab"><img align="center" src="./maastricht_law_tech.svg" width="auto" height="50px" alt="Logo of Maastricht University Law and Tech Lab"></a>
 </p>
-
