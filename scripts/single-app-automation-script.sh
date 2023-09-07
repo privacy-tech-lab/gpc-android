@@ -1,8 +1,8 @@
 #!/bin/bash
 
 SCRIPT_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/basic-automation-script.sh"
-APP_LIST="/Users/nishantaggarwal/Documents/Apps/GAME_ACTION/apps-GAME_ACTION.txt"
-INSTALL_PATH="/Users/nishantaggarwal/Documents/Apps/GAME_ACTION"
+APP_LIST="/Users/nishantaggarwal/Documents/Apps/GAME_STRATEGY/GAME_STRATEGY.txt"
+INSTALL_PATH="/Users/nishantaggarwal/Documents/Apps/GAME_STRATEGY"
 
 killwait ()
 {
@@ -60,8 +60,13 @@ cd $INSTALL_PATH
 install_app $TARGET_PACKAGE_NAME
 sleep 2    
 
-# WITH ADID
+# INITIAL CAPTURE ADID
 TYPE="_ADID"
+( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
+echo "Initial Adid Done!"
+
+# WITH ADID
+TYPE="_ADID_2"
 ( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
 echo "ADID DONE!"
 sleep 2
@@ -86,7 +91,9 @@ echo "ADID+GPC DONE!"
 sleep 2
 
 # DELETED ADID
-adb shell am start -n com.google.android.gms/.ads.settings.AdsSettingsActivity
+# adb shell su -c am start -n com.google.android.gms/.adsidentity.settings.AdsIdentitySettingsActivity
+# adb shell am start -n com.google.android.gms/.ads.settings.AdsSettingsActivity
+adb shell am start -n com.google.android.gms/.adid.settings.AdsSettingsActivity
 sleep 2
 adb shell input tap 763 538
 sleep 1
@@ -118,7 +125,8 @@ sleep 2
 adb shell pm uninstall $TARGET_PACKAGE_NAME
 
 # RE-TURN ON THE ADID
-adb shell am start -n com.google.android.gms/.ads.settings.AdsSettingsActivity
+#adb shell am start -n com.google.android.gms/.ads.settings.AdsSettingsActivity
+adb shell am start -n com.google.android.gms/.adid.settings.AdsSettingsActivity
 sleep 1
 adb shell input tap 763 538
 sleep 1
