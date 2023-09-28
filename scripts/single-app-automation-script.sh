@@ -1,13 +1,28 @@
 #!/bin/bash
 
 SCRIPT_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/basic-automation-script.sh"
-APP_LIST="/Users/nishantaggarwal/Documents/Apps/GAME_STRATEGY/GAME_STRATEGY.txt"
-INSTALL_PATH="/Users/nishantaggarwal/Documents/Apps/GAME_STRATEGY"
+APP_LIST="/Users/nishantaggarwal/Documents/Apps/apps-451-600.txt"
+INSTALL_PATH="/Users/nishantaggarwal/Documents/Apps"
 
 killwait ()
 {
   (sleep 1; kill $1) &
   wait $1
+}
+
+# Function to save the Permssions
+save_permissions () {
+adb shell su -c dumpsys package $1 | awk '/runtime permissions:/, /^[^ ]/{ if (!/^[^ ]/) print $0 }' > permissions.txt
+adb shell su -c pm clear $1
+}
+
+# Function to retrieve Permissions
+retrieve_permissions () {
+local package_name="$1"
+cat permissions.txt | grep "granted=true" | awk -F':' '{print $1}' | while read permission; do
+    echo "$TARGET_PACKAGE_NAME : $permission"
+    adb </dev/null shell su -c pm grant $package_name $permission
+done
 }
 
 # Function to install split APKs
@@ -64,12 +79,14 @@ sleep 2
 TYPE="_ADID"
 ( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
 echo "Initial Adid Done!"
+adb shell su -c pm clear $TARGET_PACKAGE_NAME
 
 # WITH ADID
 TYPE="_ADID_2"
 ( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
 echo "ADID DONE!"
 sleep 2
+adb shell su -c pm clear $TARGET_PACKAGE_NAME
 
 # WITH PERMISSIONS
 #./../aapt2 d permissions net.wordbit.enes.apk | sed -n -e "s/'//g" -e "/^uses-permission: name=android.permission\./s/^[^=]*=//p"
@@ -84,6 +101,8 @@ sleep 2
 
 # WITH GPC
 TYPE="_ADID_GPC"
+save_permissions $TARGET_PACKAGE_NAME
+retrieve_permissions $TARGET_PACKAGE_NAME
 echo "ADID+GPC STARTED!"
 sleep 2
 ( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
@@ -102,6 +121,8 @@ sleep 1
 echo "AdId Deleted!"
 
 TYPE="_NO_ADID"
+save_permissions $TARGET_PACKAGE_NAME
+retrieve_permissions $TARGET_PACKAGE_NAME
 echo "NO ADID STARTED!"
 sleep 2
 ( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
@@ -111,12 +132,16 @@ sleep 2
 # DELETE ADID + FORCE QUIT
 adb shell am force-stop $TARGET_PACKAGE_NAME
 TYPE="_NO_ADID_QUIT"
+save_permissions $TARGET_PACKAGE_NAME
+retrieve_permissions $TARGET_PACKAGE_NAME
 ( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
 echo "NO ADID+QUIT DONE!"
 sleep 2
 
 # DELETE ADID + GPC
 TYPE="_NO_ADID_GPC"
+save_permissions $TARGET_PACKAGE_NAME
+retrieve_permissions $TARGET_PACKAGE_NAME
 ( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
 echo "NO ADID+GPC DONE!"
 sleep 2
