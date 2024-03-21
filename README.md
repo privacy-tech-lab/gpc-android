@@ -21,7 +21,7 @@
 
 This repo contains code and analysis scripts for GPC on Android.
 
-GPC Android is developed and maintained by Nishant Aggarwal (@n-aggarwal), and Konrad Kollnig (@kasnder), and Sebastian Zimmeck (@SebastianZimmeck) of the [Law and Tech Lab of Maastricht University](https://www.maastrichtuniversity.nl/about-um/faculties/law/research/law-and-tech-lab) and the [privacy-tech-lab of Wesleyan University](https://privacytechlab.org/). Wesley Tan (@wesley-tan) contributed earlier.
+GPC Android is developed and maintained by Nishant Aggarwal (@n-aggarwal), Zachary Liu (@zatchliu), Konrad Kollnig (@kasnder), and Sebastian Zimmeck (@SebastianZimmeck) of the [Law and Tech Lab of Maastricht University](https://www.maastrichtuniversity.nl/about-um/faculties/law/research/law-and-tech-lab) and the [privacy-tech-lab of Wesleyan University](https://privacytechlab.org/). Wesley Tan (@wesley-tan) contributed earlier.
 
 [1. Research Publications](#1-research-publications)  
 [2. Repo Overview](#2-repo-overview)  
