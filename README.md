@@ -55,6 +55,8 @@ The `gpc-android-app` directory contains the code for an app with the following 
 
 You can run the app by cloning this repo and running it in [Android Studio](https://developer.android.com/studio).
 
+Also, check out [Konrad's Android GPC app](https://github.com/TrackerControl/gpc_android)!
+
 ## 4. Scripts
 
 The scripts can be used in conjunction with [mitmproxy](https://mitmproxy.org/) SOCKS5 mode to intercept network traffic and perform dynamic privacy analysis on Android apps.
