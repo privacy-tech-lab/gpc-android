@@ -67,7 +67,10 @@ Run the scripts as follows:
    mitmdump --mode SOCKS5 -p $PORT_NUMBER
    ```
 
-5. Enter the IP-address and port number of the SOCKS proxy in the SOCKSdroid app and enable the proxy on your phone. You should now be able to intercept network traffic. <br />Note: To avoid problems make sure that your phone and computer are connected to the same wifi network.
+5. Enter the IP-address and port number of the SOCKS proxy in the SOCKSdroid app and enable the proxy on your phone. You should now be able to intercept network traffic.
+
+   **Note**: To avoid problems make sure that your phone and computer are connected to the same Wi-Fi network.
+
 6. To use the GPC header the terminal command is
 
    ```bash
@@ -140,7 +143,7 @@ APKs can be manually downloaded with [Raccoon](https://raccoon.onyxbits.de/) as 
 
 ## 7. Thank You!
 
-<p align="center"><strong>We would like to thank our financial supporters!</strong></p><br>
+<p align="center"><strong>We would like to thank our supporters!</strong></p><br>
 
 <p align="center">Major financial support provided by the National Science Foundation.</p>
 
@@ -167,5 +170,5 @@ APKs can be manually downloaded with [Raccoon](https://raccoon.onyxbits.de/) as 
 
 <p align="center">
   <a href="https://privacytechlab.org/"><img align="center" src="./plt_logo.png" width="auto" height="200px" alt="privacy-tech-lab logo"></a>
-  <a href="https://www.maastrichtuniversity.nl/about-um/faculties/law/research/law-and-tech-lab"><img align="center" src="./maastricht_law_tech.svg" width="auto" height="50px" alt="Logo of Maastricht University Law and Tech Lab"></a>
+  <a href="https://www.maastrichtuniversity.nl/about-um/faculties/law/research/law-and-tech-lab"><img align="center" src="./maastricht_law_tech.jpg" width="auto" height="100px" alt="Logo of Maastricht University Law and Tech Lab"></a>
 </p>
