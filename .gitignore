@@ -114,3 +114,7 @@ lint/tmp/
 .vscode
 ehthumbs.db
 Thumbs.db
+
+# Data Files
+*.mitm
+*.har
