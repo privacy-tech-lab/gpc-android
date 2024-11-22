@@ -1,5 +1,7 @@
-APP_LIST="/Users/nishantaggarwal/Documents/Apps/GAME_ACTION/apps-GAME_ACTION.txt"
-SCRIPT_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/single-app-automation-script.sh"
+current_dir=$(pwd)
+
+APP_LIST="$current_dir/app-list.txt"
+SCRIPT_PATH="$current_dir/single-app-automation-script.sh"
 
 while read TARGET_PACKAGE_NAME <&3
 do
@@ -12,3 +14,5 @@ do
     fi
 
 done 3<$APP_LIST
+
+cd $current_dir

@@ -1,8 +1,9 @@
 #!/bin/bash
 
-SCRIPT_PATH="/Users/nishantaggarwal/Documents/git-repositories/privacy-tech-lab/gpc-android/scripts/basic-automation-script.sh"
-APP_LIST="/Users/nishantaggarwal/Documents/Apps/apps-451-600.txt"
-INSTALL_PATH="/Users/nishantaggarwal/Documents/Apps"
+current_dir=$(pwd)
+SCRIPT_PATH="$current_dir/../scripts/basic-automation-script.sh"
+APP_LIST="$current_dir/app-list.txt"
+INSTALL_PATH="$current_dir/../apps"
 
 killwait ()
 {
@@ -27,6 +28,7 @@ done
 
 # Function to install split APKs
 install_app() {
+  echo "$INSTALL_PATH"
   local apk="$1.apk"
 
   if test -f "$apk"; then
@@ -38,6 +40,8 @@ install_app() {
     # Install the APKs using adb
     adb install-multiple $apks
   fi
+
+  cd $current_dir
 
 }
 
