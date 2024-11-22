@@ -28,7 +28,7 @@ The code and all other resources in this repo are developed and maintained by **
 [3. GPC Android App](#3-gpc-android-app)  
 [4. Scripts](#4-scripts)  
 [5. Apps CSV](#5-apps-csv)  
-[6. Thank You!](#7-thank-you)
+[6. Thank You!](#6-thank-you)
 
 ## 1. Research Publications
 
@@ -61,7 +61,7 @@ Also, check out [Konrad's GPC Android app](https://github.com/TrackerControl/gpc
 
 The scripts can be used in conjunction with [mitmproxy](https://mitmproxy.org/) SOCKS5 mode to intercept network traffic and perform dynamic privacy analysis on Android apps. This following is a guide on how to run captures using the gpc-android framework. To begin you should clone the repo.
 
-## Dependencies (Prerequisites)
+### Dependencies (Prerequisites)
 1. Frida Server on Test Device
 2. App for SOCKS Proxy on Test Device
 3. MITM Proxy in laptop
@@ -71,17 +71,17 @@ The scripts can be used in conjunction with [mitmproxy](https://mitmproxy.org/) 
 7. Rooted Test device set up with the appropriate Magisk Modules 
 8. USB Debugging is enabled in the test device
 
-## Apps to Test
+### Apps to Test
 
 Once the repo is cloned, you will see there is a file called `scripts/app-list.txt`. In that file you should enter the list of **package names** that you want to test. Each package name should be on a new line. 
 
 The next step is to upload the actual apk files. You will see a folder called `apps`. This is where all the apks should be uploaded. It is highly recommended that the apks are deleted (or not staged) prior to any commit.   
 
-## Setting up the capture infrastructure
+### Setting up the capture infrastructure
 
 Now we can move on to setting up the capture infrastructure. To begin, you will need a usb type-c to type-c cord. Use this to connect the test device to the laptop (via adb). Make sure the device is connected by running the command `adb devices`. If you see a device in the list, you should be ready. If not, simply try detaching and reconnecting the usb connection.
 
-## Running the captures
+### Running the captures
 
 Before you begin, make sure that your setup has followed all instructions till here and all the pre-requisites have been satisfied. If so, we are now ready to start the captures. The following is a list of steps in order, that explicitly tell you how to run it.
 
@@ -101,20 +101,20 @@ adb shell su -c /data/local/tmp/frida-server &
 bash multi-app-automation-script.sh
 ```
 
-## Output files
+### Output files
 
 The output file (.mitm and .har files) are stored in the `mitm-captures` folder. These files will not be uploaded to the remote. If you do want to upload them, please modify the .gitignore files accordingly.
 
-# Troubleshooting
+### Troubleshooting
 
-## Frida 
+#### Frida 
 
 Frida is the most likely component to break the testing framework. This is because new OTA Android updates can break its functionality. To fix the issue, you can try a couple of things:
 - Install the latest version of frida server on android (arm64)
 - Make sure the frida client and frida server are the same version
 - Check the frida github for relevant information on the issue you may be facing 
 
-## Network Connection
+#### Network Connection
 
 The path the network traffic takes in this setup is somewhat complicated. As such there could be several different places where the issue could be arising from:
 - **The SOCKS Proxy:** The SOCKS Proxy connects the (Android) phone to the laptop. To make sure the connection is setup properly, first check the IP address of the laptop you are connecting the device to. Now set that to the IP address of to be reached in in SOCKS Proxy. But this alone is not enough. You also need to make sure that the port that you are sending the data to, is listening for incoming data. This would, for us, be MITM Proxy. The port we are using is 8889.
