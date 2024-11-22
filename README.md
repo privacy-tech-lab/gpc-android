@@ -59,43 +59,67 @@ Also, check out [Konrad's GPC Android app](https://github.com/TrackerControl/gpc
 
 ## 4. Scripts
 
-The scripts can be used in conjunction with [mitmproxy](https://mitmproxy.org/) SOCKS5 mode to intercept network traffic and perform dynamic privacy analysis on Android apps.
+The scripts can be used in conjunction with [mitmproxy](https://mitmproxy.org/) SOCKS5 mode to intercept network traffic and perform dynamic privacy analysis on Android apps. This following is a guide on how to run captures using the gpc-android framework. To begin you should clone the repo.
 
-Run the scripts as follows:
+## Dependencies (Prerequisites)
+1. Frida Server on Test Device
+2. App for SOCKS Proxy on Test Device
+3. MITM Proxy in laptop
+4. Mullvad VPN Account (and set up in laptop)
+5. MITM Proxy installed and setup in laptop
+6. ADB Installed and set up on the laptop
+7. Rooted Test device set up with the appropriate Magisk Modules 
+8. USB Debugging is enabled in the test device
 
-1. Install and configure mitmproxy on your computer.
-2. Install the mitmproxy certificate in your computer's Root Certificate directory and to the User Certificate directory of your Android phone.
-3. Install the [SOCKSdroid app](https://play.google.com/store/apps/details?id=net.typeblog.socks&hl=en_US&gl=US) to reroute traffic from your phone to the proxy server.
-4. Start a SOCKS5 proxy on your computer. To do so, execute the following command in your terminal:
+## Apps to Test
 
-   ```bash
-   mitmdump --mode SOCKS5 -p $PORT_NUMBER
-   ```
+Once the repo is cloned, you will see there is a file called `scripts/app-list.txt`. In that file you should enter the list of **package names** that you want to test. Each package name should be on a new line. 
 
-5. Enter the IP address and port number of the SOCKS proxy in the SOCKSdroid app and enable the proxy on your phone. You should now be able to intercept network traffic.
+The next step is to upload the actual apk files. You will see a folder called `apps`. This is where all the apks should be uploaded. It is highly recommended that the apks are deleted (or not staged) prior to any commit.   
 
-   **Note**: To avoid problems make sure that your phone and computer are connected to the same Wi-Fi network.
+## Setting up the capture infrastructure
 
-6. In order to check how an app behaves if it receives GPC signals, you can inject GPC headers with the terminal command:
+Now we can move on to setting up the capture infrastructure. To begin, you will need a usb type-c to type-c cord. Use this to connect the test device to the laptop (via adb). Make sure the device is connected by running the command `adb devices`. If you see a device in the list, you should be ready. If not, simply try detaching and reconnecting the usb connection.
 
-   ```bash
-   mitmdump --mode SOCKS5 -p $PORT_NUMBER -s mitm-script.py
-   ```
+## Running the captures
 
-   `mitm-script.py` is available in the scripts folder.
+Before you begin, make sure that your setup has followed all instructions till here and all the pre-requisites have been satisfied. If so, we are now ready to start the captures. The following is a list of steps in order, that explicitly tell you how to run it.
 
-**Note**: The above instructions may not allow you to view all network traffic because apps may use SSL Pinning or other defenses against network traffic analysis. To view more of the data you will have to do make a few more changes:
+1.  Reboot the test device: 
+```
+adb reboot 
+```
+2. Turn on Data Saver and Turn off Private DNS on the Test Device; both the settings can be found in `Settings -> Networks`
+3. Turn on the Frida
+```
+adb shell su -c /data/local/tmp/frida-server &
+```
+4. Now connect the test device to the laptop using SOCKS Proxy. To do so first find the IP address of the laptop (for Macbooks, this can be found in `Settings -> Wifi -> Details`. Now set this to be the IP address of the SOCKS Proxy on the test device. Set the port to 8889. Turn on the SOCKS Proxy Connection.
+5. Turn on Mullvad VPN on the laptop and make sure, that you are connected to a server in California.
+6. Navigate to the `scripts` directory in the `gpc-android` repo and run the command 
+```
+bash multi-app-automation-script.sh
+```
 
-- Most apps do not accept user installed certificates. The suggested way to get around this limitation is to root the device and install the [MagiskTrustUserCerts Module](https://github.com/NVISOsecurity/MagiskTrustUserCerts) to install the certificate into the system store. Rooting a device depends on the version of Android you are using and the manufacturer of your phone; as such we are not able to provide detailed instructions on this. Nevertheless, using [Magisk](https://magiskmanager.com/#How_to_Install_Magisk_Latest_Version_on_Android_Custom_Recovery_Option) is a good starting point to root the device.
+## Output files
 
-  As an alternative to rooting the phone you can apply the [apk-mitm](https://github.com/shroudedcode/apk-mitm) to the apps you want to analyze.
+The output file (.mitm and .har files) are stored in the `mitm-captures` folder. These files will not be uploaded to the remote. If you do want to upload them, please modify the .gitignore files accordingly.
 
-- Some apps may still not accept the certificate because of SSL Pinning. To get around this, install the [Frida server](https://github.com/frida/frida) on your device and run the `SSL-Unpinning-script` on the desired app. Follow the [HTTP ToolKit Frida guide](https://httptoolkit.com/blog/frida-certificate-pinning/) for instructions on installing and setting up Frida.
+# Troubleshooting
 
-- On rooted devices, Chrome Certificate Transparency prevents network capture of browser data. To get around this issue, install the [MagiskBypassCertificateTransparencyError Module](https://github.com/JelmerDeHen/MagiskBypassCertificateTransparencyError).
+## Frida 
 
-  **Note**: You still may not be able to intercept network traffic for some apps. This is because the SSLUnpinning script we use is not foolproof. There are apps like Instagram that use custom pinning libraries that are very tough to workaround. Nevertheless, performing the above measures should give you access to network traffic of most of apps on the Google Play Store.
+Frida is the most likely component to break the testing framework. This is because new OTA Android updates can break its functionality. To fix the issue, you can try a couple of things:
+- Install the latest version of frida server on android (arm64)
+- Make sure the frida client and frida server are the same version
+- Check the frida github for relevant information on the issue you may be facing 
 
+## Network Connection
+
+The path the network traffic takes in this setup is somewhat complicated. As such there could be several different places where the issue could be arising from:
+- **The SOCKS Proxy:** The SOCKS Proxy connects the (Android) phone to the laptop. To make sure the connection is setup properly, first check the IP address of the laptop you are connecting the device to. Now set that to the IP address of to be reached in in SOCKS Proxy. But this alone is not enough. You also need to make sure that the port that you are sending the data to, is listening for incoming data. This would, for us, be MITM Proxy. The port we are using is 8889.
+- **MITM Proxy:** The MITM Proxy is the next stage in the network transfer process. To make sure this is set up correctly make sure that MITM is up to date and running on the same port as defined in the SOCKS Proxy. For us, this should be 8889.
+- **Mullvad VPN:** The last step in our network transfer process is the Mullvad VPN. I have almost never encountered issues with it,  but in case you have a connection issue, it may be better to just test the setup without the VPN running to eliminate on potential point of issue. 
 ## 5. Apps CSV
 
 The `apps_csv directory` contains a collection of CSV files, each representing a category of apps on the Google Play Store. Each file contains a list of the top 40 free apps for a category.
