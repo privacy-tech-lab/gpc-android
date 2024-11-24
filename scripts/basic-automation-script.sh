@@ -22,12 +22,12 @@ MITM_DUMMY_SCRIPT_PATH="$current_dir/mitm-dummy-script.py"
 
 # Start MITM-Wireguard
 if [ "$TYPE" == "_ADID_GPC" ] || [ "$TYPE" == "_NO_ADID_GPC" ]; then
-  mitmdump --mode socks5 -p 8889 -s $MITM_SCRIPT_PATH --showhost -w $MITM_PATH -s $HAR_SCRIPT_PATH --set hardump=$HAR_PATH &
+  mitmdump --mode socks5 -p 8889 -s $MITM_SCRIPT_PATH --showhost -w $MITM_PATH --set hardump=$HAR_PATH &
   MITM_PID=$!
   echo "MITM-Proxy started"
   sleep 2
 else 
-  mitmdump --mode socks5 -p 8889 -s $MITM_DUMMY_SCRIPT_PATH --showhost -w $MITM_PATH -s $HAR_SCRIPT_PATH --set hardump=$HAR_PATH &
+  mitmdump --mode socks5 -p 8889 -s $MITM_DUMMY_SCRIPT_PATH --showhost -w $MITM_PATH --set hardump=$HAR_PATH &
   MITM_PID=$!
   echo "MITM-Proxy started"
   sleep 2
