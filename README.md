@@ -21,18 +21,18 @@
 
 This repo contains code and other resources for dynamically analyzing Android apps, especially, for checking their compliance with [Global Privacy Control (GPC)](https://globalprivacycontrol.org/). GPC is a privacy preference signal for opting out from ad tracking. Apps are required to respect GPC signals per the California Consumer Privacy Act (CCPA) and other privacy laws.
 
-The code and all other resources in this repo are developed and maintained by **Nishant Aggarwal (@n-aggarwal)**, **Zachary Liu (@zatchliu)** and **Sebastian Zimmeck (@SebastianZimmeck)** of the [privacy-tech-lab](https://privacytechlab.org/) and **Konrad Kollnig (@kasnder)** of the [Law and Tech Lab of Maastricht University](https://www.maastrichtuniversity.nl/about-um/faculties/law/research/law-and-tech-lab). Wesley Tan (@wesley-tan) contributed earlier.
+The code and all other resources in this repo are developed and maintained by **Nishant Aggarwal (@n-aggarwal)**, **Zachary Liu (@zatchliu)**, **Samir Cerrato (@samir-cerrato)** and **Sebastian Zimmeck (@SebastianZimmeck)** of the [privacy-tech-lab](https://privacytechlab.org/) and **Konrad Kollnig (@kasnder)** of the [Law and Tech Lab of Maastricht University](https://www.maastrichtuniversity.nl/about-um/faculties/law/research/law-and-tech-lab). Wesley Tan (@wesley-tan) contributed earlier.
 
 [1. Research Publications](#1-research-publications)  
 [2. Repo Overview](#2-repo-overview)  
 [3. GPC Android App](#3-gpc-android-app)  
 [4. Scripts](#4-scripts)  
 [5. Apps CSV](#5-apps-csv)  
-[6. Thank You!](#7-thank-you)
+[6. Thank You!](#6-thank-you)
 
 ## 1. Research Publications
 
-Sebastian Zimmeck, Nishant Aggarwal, Zachary Liu and Konrad Kollnig, [From Ad Identifiers to Global Privacy Control: The Status Quo and Future of Opting Out of Ad Tracking on Android](), Under Review at 25th Privacy Enhancing Technologies Symposium (PETS), Washington, DC, United States and Online Event, July 2025, [BibTeX]().
+Sebastian Zimmeck, Nishant Aggarwal, Zachary Liu and Konrad Kollnig, [From Ad Identifiers to Global Privacy Control: The Status Quo and Future of Opting Out of Ad Tracking on Android](https://arxiv.org/abs/2407.14938), Under Review, [BibTeX]().
 
 If you are using code or other resources from this repo, please cite the above paper.
 
