@@ -73,7 +73,7 @@ The scripts can be used in conjunction with [mitmproxy](https://mitmproxy.org/) 
 
 ### Apps to Test
 
-Once the repo is cloned, you will see there is a file called `scripts/app-list.txt`. In that file you should enter the list of **package names** that you want to test. Each package name should be on a new line. 
+Once the repo is cloned, you will see there is a file called `scripts/app-list.txt`. In that file you should enter the list of **package names** that you want to test. Each package name should be on a new line. Make sure to add an empty line after your last package name.
 
 The next step is to upload the actual apk files. You will see a folder called `apps`. This is where all the apks should be uploaded. It is highly recommended that the apks are deleted (or not staged) prior to any commit.   
 
@@ -112,7 +112,22 @@ The output file (.mitm and .har files) are stored in the `mitm-captures` folder.
 Frida is the most likely component to break the testing framework. This is because new OTA Android updates can break its functionality. To fix the issue, you can try a couple of things:
 - Install the latest version of frida server on android (arm64)
 - Make sure the frida client and frida server are the same version
-- Check the frida github for relevant information on the issue you may be facing 
+- Check the frida github for relevant information on the issue you may be facing
+
+An error you are likely to encounter when running the Frida server is the following:
+
+- {"type":"error","description":"Error: Unable to perform state transition; please file a bug","stack":"Error: Unable to perform state transition; please file a bug\n at bt (frida/node_modules/frida-java-bridge/lib/android.js:578:1)\n at frida/node_modules/frida-java-bridge/lib/class-model.js:112:1\n at Function.build (frida/node_modules/frida-java-bridge/lib/class-model.js:7:1)\n at k._make (frida/node_modules/frida-java-bridge/lib/class-factory.js:168:1)\n at k.use (frida/node_modules/frida-java-bridge/lib/class-factory.js:62:1)\n at frida/node_modules/frida-java-bridge/index.js:224:1\n at c.perform (frida/node_modules/frida-java-bridge/lib/vm.js:12:1)\n at _performPendingVmOpsWhenReady (frida/node_modules/frida-java-bridge/index.js:223:1)\n at _.perform (frida/node_modules/frida-java-bridge/index.js:204:1)\n at /internal-agent.js:490:6","fileName":"frida/node_modules/frida-java-bridge/lib/android.js","lineNumber":578,"columnNumber":1}
+
+To resolve this issue, you can delete the Android run time library. Steps to uninstall run time:
+
+1. Run "pm uninstall com.google.android.art"
+```
+pm uninstall com.google.android.art
+```
+2. Reboot your test device
+```
+adb reboot 
+```
 
 #### Network Connection
 
