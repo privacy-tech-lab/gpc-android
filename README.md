@@ -120,11 +120,15 @@ An error you are likely to encounter when running the Frida server is the follow
 
 To resolve this issue, you can delete the Android run time library. Steps to uninstall run time:
 
-1. Run "pm uninstall com.google.android.art"
+1. Run "adb shell"
+```
+adb shell
+```
+3. Run "pm uninstall com.google.android.art"
 ```
 pm uninstall com.google.android.art
 ```
-2. Reboot your test device
+2. Exit the shell with CTRL + D and then reboot your test device
 ```
 adb reboot 
 ```
