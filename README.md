@@ -139,6 +139,23 @@ The path the network traffic takes in this setup is somewhat complicated. As suc
 - **The SOCKS Proxy:** The SOCKS Proxy connects the (Android) phone to the laptop. To make sure the connection is setup properly, first check the IP address of the laptop you are connecting the device to. Now set that to the IP address of to be reached in in SOCKS Proxy. But this alone is not enough. You also need to make sure that the port that you are sending the data to, is listening for incoming data. This would, for us, be MITM Proxy. The port we are using is 8889.
 - **MITM Proxy:** The MITM Proxy is the next stage in the network transfer process. To make sure this is set up correctly make sure that MITM is up to date and running on the same port as defined in the SOCKS Proxy. For us, this should be 8889.
 - **Mullvad VPN:** The last step in our network transfer process is the Mullvad VPN. I have almost never encountered issues with it,  but in case you have a connection issue, it may be better to just test the setup without the VPN running to eliminate on potential point of issue. 
+
+### Procedure for Manual Traffic Analysis
+
+The process for capturing traffic manually is similar to the setup above, but has some key differences in method. In order to do this, first follow the instructions under "Setting up the capture infrastructure," as well as those under "Running the captures" above through step 5 (turning on Mullvad VPN). Additionally, you will need the app whose traffic you wish to analyze installed on your android device. Proceed to the following steps:
+
+  1. Edit the paths given in `save_flows.py` (in the `scripts` directory) to ensure the script has a valid path to save to. Generally, this path should be `./mitm-captures/$APP_PACKAGE_NAME/not_opted_out.jsonl` (or `.../opted_out.jsonl`).
+  2.  Then run the following three commands in your terminal in sequence. This clears any data on the android device associated with the given app, begins capturing network traffic from the device, and opens the app with the necessary Frida script running.
+ 
+    adb shell su -c pm clear $APP_PACKAGE_NAME 
+
+    mitmdump --mode socks5  -s ./scripts/save_flows.py 
+
+    frida -U -l ./scripts/frida-script.js -f $APP_PACKAGE_NAME 
+  3. In order to stop saving traffic to the path listed in `save_flows.py`, you can press CTRL+C at any time to quit mitmproxy, and CTRL+C along with `exit` to end the Frida script.
+
+This capture method is used to directly examine the traffic an app is sending before and after an in-app privacy toggle is switched on. 
+
 ## 5. Apps CSV
 
 The `apps_csv directory` contains a collection of CSV files, each representing a category of apps on the Google Play Store. Each file contains a list of the top 40 free apps for a category.
@@ -194,6 +211,7 @@ Each CSV file contains the following columns:
    5. Sit and wait ...
 
 6. If downloading apps with the two previous methods fails, you can also try the `google-play` method through [apkeep](https://github.com/EFForg/apkeep).
+
 
 ## 6. Thank You!
 
