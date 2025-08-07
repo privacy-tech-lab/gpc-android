@@ -1,15 +1,17 @@
 import json
 from datetime import datetime
 
-pkg_name = 'com.ubercab'
+pkg_name = 'APP PACKAGE NAME HERE'
 opted_out = 'not_opted_out'
-file_path = './mitm-captures/' + pkg_name + '/' + opted_out + '.jsonl'  # JSON lines format
+file_path = './mitm-captures/' + pkg_name + '/' + opted_out + '.json'  # JSON format
+data = [] # The data that will be saved to the JSON file afterwards
 
+# Called whenever a full HTTP response is read to append the request/response information to data
 def response(flow):
     try:
         # Collect data
         entry = { 
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": datetime.now().isoformat(),
             "request": {
                 "method": flow.request.method,
                 "url": flow.request.pretty_url,
@@ -26,15 +28,19 @@ def response(flow):
             }
         }
 
-        # Append to file
-        with open(file_path, 'a', encoding='utf-8') as f:
-            f.write(json.dumps(entry, ensure_ascii=False) + '\n')
+        # Append to data
+        data.append(entry)
 
     except Exception as e:
-        with open(file_path, 'a', encoding='utf-8') as f:
-            error_entry = {
-                "timestamp": datetime.utcnow().isoformat(),
-                "error": str(e),
-                "url": flow.request.pretty_url
-            }
-            f.write(json.dumps(error_entry) + '\n')
+        error_entry = {
+            "timestamp": datetime.utcnow().isoformat(),
+            "error": str(e),
+            "url": flow.request.pretty_url
+        }
+        # Append to data
+        data.append(error_entry)
+
+# Called on shutdown to write the contents of data to a JSON file. Should be the last event this script reads
+def done():
+    with open(file_path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
