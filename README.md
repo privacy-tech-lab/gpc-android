@@ -154,7 +154,12 @@ The process for capturing traffic manually is similar to the setup above, but ha
     frida -U -l ./scripts/frida-script.js -f $APP_PACKAGE_NAME 
   3. In order to stop saving traffic to the path listed in `save_flows.py`, you can press CTRL+C at any time to quit mitmproxy, and CTRL+C along with `exit` to end the Frida script.
 
-This capture method is used to directly examine the traffic an app is sending before and after an in-app privacy toggle is switched on. 
+This capture method is used to directly examine the traffic an app is sending before and after an in-app privacy toggle is switched on. It was run on a Google Pixel 6a. These instructions should also generally work with other Android phones, but you would need to download versions of the respective software compatible with your device and OS, which may cause issues. Most recent versions tested are as follows:
+- Pixel 6a
+- Android 16 (Build Number BP2A.250705.008)
+- MITMProxy v12.2.1
+- Frida v17.5.1
+- SocksDroid v1.0.4
 
 ## 5. Apps CSV
 
