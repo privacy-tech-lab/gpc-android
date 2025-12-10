@@ -144,13 +144,13 @@ The Scripts for performing the dynamic analysis are available in our [GPC Androi
 3. Open a new terminal session.
 4. Navigate to the `gpc-android-main` directory, created by unzipping the contents of the GitHub directory.
 5. Prepare the capture script as follows
-   i. Open `./scripts/save_flows.py` in your preferred code editor and set pkg*name, on line 4, to `de.danoeh.antennapod`.
-   ii. Create a folder called `de.danoeh.antennapod` in the `mitm-captures` folder of the `\_gpc-android-main* directory`.
+   1. Open `./scripts/save_flows.py` in your preferred code editor and set pkg\*name, on line 4, to `de.danoeh.antennapod`.
+   2. Create a folder called `de.danoeh.antennapod` in the `mitm-captures` folder of the `\_gpc-android-main* directory`.
 6. Open two more terminal tabs, located in the same directory.
 7. In the first tab, use the commands provided above to ensure that the frida-server on your Android device is running correctly.
 8. Set up the SOCKS5 proxy as follows
-   i. In the SocksDroid app, set Server IP to 127.0.0.1 and Server Port to 8889.
-   ii. Turn the proxy on.
+   1. In the SocksDroid app, set Server IP to 127.0.0.1 and Server Port to 8889.
+   2. Turn the proxy on.
 9. In the second tab run
 
    ```console
