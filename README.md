@@ -29,13 +29,13 @@ The code and all other resources in this repo are developed and maintained by **
 [4. Apps CSV](#4-apps-csv)  
 [5. Thank You!](#5-thank-you)
 
+For setup instructions, see also our [Artifact Appendix](https://github.com/privacy-tech-lab/gpc-android/blob/main/ARTIFACT-APPENDIX.md).
+
 ## 1. Research Publications
 
 Sebastian Zimmeck, Nishant Aggarwal, Zachary Liu, Sage Altman, and Konrad Kollnig, [From Ad Identifiers to Global Privacy Control: The Status Quo and Future of Opting Out of Ad Tracking on Android](https://arxiv.org/abs/2407.14938).
 
 You can find a complete list of our GPC research publications in the [GPC OptMeowt repo](https://github.com/privacy-tech-lab/gpc-optmeowt?tab=readme-ov-file#1-research-publications).
-
-For setup instructions see also our [Artifact Appendix](https://github.com/privacy-tech-lab/gpc-android/blob/main/ARTIFACT-APPENDIX.md).
 
 ## 2. Repo Overview
 
