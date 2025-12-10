@@ -100,7 +100,7 @@ The Scripts for performing the dynamic analysis are available in our [GPC Androi
    To move the frida-server file to your phone's storage run
 
    ```console
-   `adb push ./frida-server /data/local/tmp/frida-server`
+   adb push ./frida-server /data/local/tmp/frida-server
    ```
 
    To access your phone's terminal from the terminal on your computer run
