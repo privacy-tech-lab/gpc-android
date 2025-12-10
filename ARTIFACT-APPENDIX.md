@@ -82,7 +82,7 @@ The Scripts for performing the dynamic analysis are available in our [GPC Androi
    brew install mitmproxy
    ```
 
-8. Lastly, on your phone, follow the instructions in the Custom Certificate Authorities README document to install the appropriate MITMProxy certificate.
+8. Lastly, on your phone, follow the instructions in the Custom Certificate Authorities README document, located in the [GitHub repository](https://github.com/0xdad0/custom-certificate-authorities) listed above, to install the appropriate MITMProxy certificate.
 
 ### Installation
 
@@ -135,7 +135,7 @@ The Scripts for performing the dynamic analysis are available in our [GPC Androi
 
    This command should display a list of running processes. If the frida-server has been started successfully, it should appear in this list.
 
-4. Download and unzip the contents of the GitHub repository.
+4. Download and unzip the contents of the GitHub repository. This allows access to the scripts needed to run the manual analysis process, and is therefore necessary for testing the environment.
 
 ### Testing the Environment
 
