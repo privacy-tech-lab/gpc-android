@@ -82,7 +82,7 @@ The Scripts for performing the dynamic analysis are available in our [GPC Androi
    brew install mitmproxy
    ```
 
-8. Lastly, on your phone, follow the instructions in the Custom Certificate Authorities README document, located in the [GitHub repository](https://github.com/0xdad0/custom-certificate-authorities) listed above, to install the appropriate MITMProxy certificate.
+8. Lastly, on your phone, follow the instructions in the Custom Certificate Authorities README document, located in the [Custom Certificate Authorities GitHub repository](https://github.com/0xdad0/custom-certificate-authorities), to install the appropriate MITMProxy certificate.
 
 ### Installation
 
@@ -135,7 +135,7 @@ The Scripts for performing the dynamic analysis are available in our [GPC Androi
 
    This command should display a list of running processes. If the frida-server has been started successfully, it should appear in this list.
 
-4. Download and unzip the contents of the GitHub repository. This allows access to the scripts needed to run the manual analysis process, and is therefore necessary for testing the environment.
+4. Download and unzip the contents of this GitHub repository to get the scripts to run the analysis. The scripts are necessary for testing the environment.
 
 ### Testing the Environment
 
@@ -150,7 +150,7 @@ The Scripts for performing the dynamic analysis are available in our [GPC Androi
 7. In the first tab, use the commands provided above to ensure that the frida-server on your Android device is running correctly.
 8. Set up the SOCKS5 proxy as follows
    1. In the SocksDroid app, set Server IP to 127.0.0.1 and Server Port to 8889.
-   2. Turn the proxy on.
+   2. Turn on the proxy.
 9. In the second tab run
 
    ```console
