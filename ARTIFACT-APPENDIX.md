@@ -179,7 +179,7 @@ The scripts for performing the dynamic analysis are available in our [GPC Androi
 
     You should see the app open on your Android device, and network traffic should begin to appear in the third Terminal tab.
 
-12. You can now interact with the app and capture its network traffic. Once you are satisfied, use `COMMAND + C` to end the MITMProxy and Frida processes. You should now see a JSON file with your saved network traffic located in `./mitm-captures/de.danoeh.antennapod`.
+12. You can now interact with the app and capture its network traffic. For example, you can navigate to an app's opt-out UI and opt out. Once you finished your analysis, use `COMMAND + C` to end the MITMProxy and Frida processes. You should now see a JSON file with your saved network traffic located in `./mitm-captures/de.danoeh.antennapod`.
 
 ## Notes on Reusability
 
