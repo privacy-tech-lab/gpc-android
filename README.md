@@ -21,7 +21,7 @@
 
 This repo contains code and other resources for dynamically analyzing Android apps, especially, for checking their compliance with [Global Privacy Control (GPC)](https://globalprivacycontrol.org/). GPC is a privacy preference signal for opting out from ad tracking. Apps are required to respect GPC signals per the California Consumer Privacy Act (CCPA) and other privacy laws.
 
-The code and all other resources in this repo are developed and maintained by **Sage Altman (@sagealtman)**, **Nishant Aggarwal (@n-aggarwal)**, **Zachary Liu (@zatchliu)** and **Sebastian Zimmeck (@SebastianZimmeck)** of the [privacy-tech-lab](https://privacytechlab.org/) and **Konrad Kollnig (@kasnder)** of the [Law and Tech Lab of Maastricht University](https://www.maastrichtuniversity.nl/about-um/faculties/law/research/law-and-tech-lab). Wesley Tan (@wesley-tan) and Samir Cerrato (@samir-cerrato) contributed earlier.
+The code and all other resources in this repo are developed and maintained by **Sage Altman (@sagealtman)**, **Nishant Aggarwal (@n-aggarwal)**, **Zachary Liu (@zatchliu)** and **Sebastian Zimmeck (@SebastianZimmeck)** of the [privacy-tech-lab](https://privacytechlab.org/) and **Konrad Kollnig (@kasnder)** of the [Law and Tech Lab of Maastricht University](https://www.maastrichtuniversity.nl/about-um/faculties/law/research/law-and-tech-lab). Wesley Tan (@wesley-tan), Samir Cerrato (@samir-cerrato), Eliza Kuller (@ekuller) and Bella Tassone (@bella-tassone) contributed earlier.
 
 [1. Research Publications](#1-research-publications)  
 [2. Repo Overview](#2-repo-overview)  
