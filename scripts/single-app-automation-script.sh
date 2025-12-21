@@ -2,7 +2,6 @@
 
 current_dir=$(pwd)
 SCRIPT_PATH="$current_dir/../scripts/basic-automation-script.sh"
-APP_LIST="$current_dir/app-list.txt"
 INSTALL_PATH="$current_dir/../apps"
 
 killwait ()
@@ -26,7 +25,7 @@ cat permissions.txt | grep "granted=true" | awk -F':' '{print $1}' | while read 
 done
 }
 
-# Function to install split APKs
+# Function to install APKs (single or split-apks) without granting permissions
 install_app() {
   echo "$INSTALL_PATH"
   local apk="$1.apk"
@@ -35,9 +34,7 @@ install_app() {
     adb install $apk
   else
     local apk_dir="$1"
-    # Find all split APK files within the directory
     local apks=$(find "$apk_dir" -name "*.apk")
-    # Install the APKs using adb
     adb install-multiple $apks
   fi
 
@@ -45,7 +42,7 @@ install_app() {
 
 }
 
-# Function to re-install split APKs while granting all permissions
+# Function to install (single or split) APKs while granting all permissions
 reinstall_app() {
   local apk="$1.apk"
 
@@ -62,22 +59,19 @@ reinstall_app() {
 }
 
 TARGET_PACKAGE_NAME=$1
-
-# Do something with the line
 echo "Processing line: $TARGET_PACKAGE_NAME"
 
-# TODO: GET THE ADID AND SAVE IT IN A FILE WITH PACKAGE NAME
+# Retrieve and save the AdID for the app
 content=$(adb shell 'su -c "grep adid_key /data/data/com.google.android.gms/shared_prefs/adid_settings.xml"')
 extracted_string=$(echo "$content" | sed -n 's/.*<string name="adid_key">\([^<]*\)<\/string>.*/\1/p')
-
 echo "$TARGET_PACKAGE_NAME: $extracted_string" >> APP_ADID.txt
 
-# INSTALL THE APP
+# Install the app
 cd $INSTALL_PATH
-# /Users/nishantaggarwal/.cargo/bin/apkeep -a $TARGET_PACKAGE_NAME .
-#adb install "$TARGET_PACKAGE_NAME.apk"
 install_app $TARGET_PACKAGE_NAME
-sleep 2    
+sleep 2   
+
+#  ====== CAPTURES UNDER DIFFERENT CONDITIONS ======
 
 # INITIAL CAPTURE ADID
 TYPE="_ADID"
@@ -93,10 +87,6 @@ sleep 2
 adb shell su -c pm clear $TARGET_PACKAGE_NAME
 
 # WITH PERMISSIONS
-#./../aapt2 d permissions net.wordbit.enes.apk | sed -n -e "s/'//g" -e "/^uses-permission: name=android.permission\./s/^[^=]*=//p"
-# adb shell cmd appops get net.wordbit.enes
-# adb shell pm list permissions -g -d | awk -F: '/permission:/ {print $2}'
-# Alternative reinstall app while granting  permissions
 reinstall_app $TARGET_PACKAGE_NAME
 TYPE="_ADID_PERMISSIONS"
 ( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
@@ -114,8 +104,6 @@ echo "ADID+GPC DONE!"
 sleep 2
 
 # DELETED ADID
-# adb shell su -c am start -n com.google.android.gms/.adsidentity.settings.AdsIdentitySettingsActivity
-# adb shell am start -n com.google.android.gms/.ads.settings.AdsSettingsActivity
 adb shell am start -n com.google.android.gms/.adid.settings.AdsSettingsActivity
 sleep 2
 adb shell input tap 763 538
@@ -154,7 +142,6 @@ sleep 2
 adb shell pm uninstall $TARGET_PACKAGE_NAME
 
 # RE-TURN ON THE ADID
-#adb shell am start -n com.google.android.gms/.ads.settings.AdsSettingsActivity
 adb shell am start -n com.google.android.gms/.adid.settings.AdsSettingsActivity
 sleep 1
 adb shell input tap 763 538
