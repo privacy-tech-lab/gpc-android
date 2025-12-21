@@ -10,7 +10,7 @@ killwait ()
   wait $1
 }
 
-# Function to save the Permssions
+# Function to save the Permissions
 save_permissions () {
 adb shell su -c dumpsys package $1 | awk '/runtime permissions:/, /^[^ ]/{ if (!/^[^ ]/) print $0 }' > permissions.txt
 adb shell su -c pm clear $1
@@ -25,7 +25,7 @@ cat permissions.txt | grep "granted=true" | awk -F':' '{print $1}' | while read 
 done
 }
 
-# Function to install APKs (single or split-apks) without granting permissions
+# Function to install (single or split) APKs without granting permissions
 install_app() {
   echo "$INSTALL_PATH"
   local apk="$1.apk"
@@ -50,9 +50,7 @@ reinstall_app() {
     adb install -r -g $apk
   else
     local apk_dir="$1"
-    # Find all split APK files within the directory
     local apks=$(find "$apk_dir" -name "*.apk")
-    # Install the APKs using adb
     adb install-multiple -r -g $apks
   fi
 
@@ -75,13 +73,13 @@ sleep 2
 
 # INITIAL CAPTURE ADID
 TYPE="_ADID"
-( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
+(source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
 echo "Initial Adid Done!"
 adb shell su -c pm clear $TARGET_PACKAGE_NAME
 
 # WITH ADID
 TYPE="_ADID_2"
-( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
+(source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
 echo "ADID DONE!"
 sleep 2
 adb shell su -c pm clear $TARGET_PACKAGE_NAME
@@ -89,7 +87,7 @@ adb shell su -c pm clear $TARGET_PACKAGE_NAME
 # WITH PERMISSIONS
 reinstall_app $TARGET_PACKAGE_NAME
 TYPE="_ADID_PERMISSIONS"
-( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
+(source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
 echo "ADID DONE!"
 sleep 2 
 
@@ -99,7 +97,7 @@ save_permissions $TARGET_PACKAGE_NAME
 retrieve_permissions $TARGET_PACKAGE_NAME
 echo "ADID+GPC STARTED!"
 sleep 2
-( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
+(source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
 echo "ADID+GPC DONE!"
 sleep 2
 
@@ -117,7 +115,7 @@ save_permissions $TARGET_PACKAGE_NAME
 retrieve_permissions $TARGET_PACKAGE_NAME
 echo "NO ADID STARTED!"
 sleep 2
-( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
+(source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
 echo "NO ADID DONE!"
 sleep 2
 
@@ -126,7 +124,7 @@ adb shell am force-stop $TARGET_PACKAGE_NAME
 TYPE="_NO_ADID_QUIT"
 save_permissions $TARGET_PACKAGE_NAME
 retrieve_permissions $TARGET_PACKAGE_NAME
-( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
+(source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
 echo "NO ADID+QUIT DONE!"
 sleep 2
 
@@ -134,9 +132,11 @@ sleep 2
 TYPE="_NO_ADID_GPC"
 save_permissions $TARGET_PACKAGE_NAME
 retrieve_permissions $TARGET_PACKAGE_NAME
-( source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
+(source $SCRIPT_PATH $TARGET_PACKAGE_NAME $TYPE)
 echo "NO ADID+GPC DONE!"
 sleep 2
+
+# ======= END OF CAPTURES ======
 
 # UNINSTALL THE APP
 adb shell pm uninstall $TARGET_PACKAGE_NAME
