@@ -33,7 +33,7 @@ For setup instructions, see also our [Artifact Appendix](https://github.com/priv
 
 ## 1. Research Publications
 
-Sebastian Zimmeck, Nishant Aggarwal, Zachary Liu, Sage Altman, and Konrad Kollnig, [From Ad Identifiers to Global Privacy Control: The Status Quo and Future of Opting Out of Ad Tracking on Android](https://arxiv.org/abs/2407.14938).
+Sebastian Zimmeck, Nishant Aggarwal, Zachary Liu, Sage Altman and Konrad Kollnig, [Exercising the CCPA Opt-out Right on Android: Legally Mandated but Practically Challenging](https://sebastianzimmeck.de/zimmeckEtAlGPCAndroid2026.pdf), 26th Privacy Enhancing Technologies Symposium (PETS), Calgary, Canada, July 2026, [BibTeX](https://sebastianzimmeck.de/citations.html#zimmeckEtAlGPCAndroid2026Bibtex)
 
 You can find a complete list of our GPC research publications in the [GPC OptMeowt repo](https://github.com/privacy-tech-lab/gpc-optmeowt?tab=readme-ov-file#1-research-publications).
 
