@@ -61,9 +61,9 @@ The scripts can be used in conjunction with [mitmproxy](https://mitmproxy.org/) 
 
 ### 3.2 Apps to Test
 
-Once the repo is cloned, you will see there is a file called `scripts/app-list.txt`. In that file you should enter the list of **package names** that you want to test. Each package name should be on a new line. Make sure to add an empty line after your last package name.
+Once the repo is cloned, you will see there is a file called `scripts/app-list.txt`. In that file you should enter the list of **package names** that you want to test (leaving out the `.apk` extension if copying from an apk). Each package name should be on a new line. Make sure to add an empty line after your last package name.
 
-The next step is to upload the actual apk files. You will see a folder called `apps`. This is where all the apks should be uploaded. It is recommended that the apks are deleted (or not staged) prior to any commit.
+The next step is to upload the actual apk files. You will need to create a folder called `apps` in the main repository. This is where all the apks should be uploaded. It is recommended that the apks are deleted (or not staged) prior to any commit.
 
 ### 3.3 Setting up the Capture Infrastructure
 
