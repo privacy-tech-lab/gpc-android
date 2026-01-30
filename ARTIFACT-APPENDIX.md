@@ -86,7 +86,7 @@ The scripts for performing the dynamic analysis are available in our [GPC Androi
    brew install mitmproxy
    ```
 
-8. Lastly, on your phone, follow the instructions in the Custom Certificate Authorities README document, located in the [Custom Certificate Authorities GitHub repository](https://github.com/0xdad0/custom-certificate-authorities), to install the appropriate MITMProxy certificate.
+8. Lastly, on your phone, follow the instructions in the Custom Certificate Authorities README document, located in the [Custom Certificate Authorities GitHub repository](https://github.com/Magisk-Modules-Alt-Repo/custom-certificate-authorities), to install the appropriate MITMProxy certificate.
 
 ### Installation
 
