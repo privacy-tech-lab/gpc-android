@@ -150,10 +150,19 @@ The following steps provide a sanity check to determine whether you have set up 
 3. Open a new Terminal session on your computer.
 4. Navigate to the `gpc-android-main` directory, created by unzipping the contents of the GitHub directory.
 5. Prepare the capture script as follows:
-   1. Open `./scripts/save_flows.py` in your preferred code editor and set pkg\*name, on line 4, to `de.danoeh.antennapod`.
-   2. Create a folder called `de.danoeh.antennapod` in the `mitm-captures` folder of the `\_gpc-android-main* directory`.
+   1. Open `./scripts/save_flows.py` in your preferred code editor and set pkg_name, on line 4, to `de.danoeh.antennapod`.
+   2. Create a folder called `de.danoeh.antennapod` in the `mitm-captures` folder of the `\gpc-android-main` directory.
 6. Open two more Terminal tabs, located in the same directory.
 7. In the first tab, use the commands provided above to ensure that the frida-server on your Android device is running correctly.
+
+   ```console
+   /data/local/tmp/frida-server &
+   ```
+
+   ```console
+   frida-ps -U
+   ```
+   
 8. Set up the SOCKS5 proxy as follows:
    1. In the SocksDroid app, set Server IP to 127.0.0.1 and Server Port to 8889.
    2. Turn on the proxy.
