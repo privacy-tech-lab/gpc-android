@@ -222,7 +222,6 @@ Each CSV file contains the following columns:
    Before running the downloader script replace `email@gmail.com` and `password` in the `play-store-downloader.sh` script with your Google Play Store email and password, respectively. Then, give the script execution permissions and run it. Doing so will download all the apps listed in the `apps-ART_AND_DESIGN.csv` file. To download apps from a different category, replace "apps-ART_AND_DESIGN.csv" with the desired CSV file name in the script.
 
 5. If downloading apps with the `play-store-downloader.sh` fails, you can also use [Raccoon](https://raccoon.onyxbits.de/) as follows:
-
    1. Make sure to have a US-based IP address (e.g., via a VPN)
    2. Set up an account with Google's US Play Store
    3. Get Raccoon and a Raccoon Premium license. Use Raccoon's DummyDroid to extract the configuration from a real Android device
@@ -235,12 +234,10 @@ Each CSV file contains the following columns:
 
 <p align="center"><strong>We would like to thank our supporters!</strong></p><br>
 
-<p align="center">Major financial support provided by the National Science Foundation.</p>
+<p align="center">Major financial support provided by the National Science Foundation under awards <a href="https://nsf.gov/awardsearch/showAward?AWD_ID=2055196">#2055196</a> and <a href="https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2618248">#2618248</a>.</p>
 
 <p align="center">
-  <a href="https://nsf.gov/awardsearch/showAward?AWD_ID=2055196">
-    <img class="img-fluid" src="./nsf.png" height="100px" alt="National Science Foundation Logo">
-  </a>
+   <img class="img-fluid" src="./nsf.png" height="100px" alt="National Science Foundation Logo">
 </p>
 
 <p align="center">Additional financial support provided by the Alfred P. Sloan Foundation, Wesleyan University, and the Anil Fernando Endowment.</p>
